@@ -76,7 +76,7 @@ df.display()
 
 # COMMAND ----------
 
-# Writing stream: Persist the streaming data to a Delta table 'streaming.bronze.weather' in 'append' mode with checkpointing
+# Writing stream: Persist the streaming data to a Delta table 'streaming.bronze' in 'append' mode with checkpointing
 df.writeStream\
     .option("checkpointLocation", f"{ruta}/FileStore/tables/bronze/vuelos")\
     .outputMode("append")\

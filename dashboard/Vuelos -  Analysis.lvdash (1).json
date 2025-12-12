@@ -1,0 +1,369 @@
+{
+  "datasets": [
+    {
+      "name": "144747cf",
+      "displayName": "vuelos",
+      "queryLines": [
+        "SELECT * FROM catalog_streaming.gold.vuelos"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "5a35864d",
+      "displayName": "Summary",
+      "layout": [
+        {
+          "widget": {
+            "name": "01e21234",
+            "queries": [
+              {
+                "name": "dashboards/01f0d627fd8c1803b6927b663560564a/datasets/01f0d628db041faca671f65c9957a27d_fecha_programada",
+                "query": {
+                  "datasetName": "144747cf",
+                  "fields": [
+                    {
+                      "name": "fecha_programada",
+                      "expression": "`fecha_programada`"
+                    },
+                    {
+                      "name": "fecha_programada_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-date-range-picker",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "fecha_programada",
+                    "queryName": "dashboards/01f0d627fd8c1803b6927b663560564a/datasets/01f0d628db041faca671f65c9957a27d_fecha_programada"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Time Range"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "2c147a61",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "144747cf",
+                  "fields": [
+                    {
+                      "name": "analisis_mes",
+                      "expression": "`analisis_mes`"
+                    },
+                    {
+                      "name": "sum(op_pasajeros_reservados)",
+                      "expression": "SUM(`op_pasajeros_reservados`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "analisis_mes",
+                  "axis": {
+                    "title": "Mes",
+                    "hideTitle": false
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(op_pasajeros_reservados)",
+                  "axis": {
+                    "title": "Pasajero"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": false
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Pasajeros por mes"
+              },
+              "mark": {
+                "colors": [
+                  "#077A9D",
+                  "#FFAB00",
+                  "#00A972",
+                  "#FF3621",
+                  "#8BCAE7",
+                  "#AB4057",
+                  "#99DDB4",
+                  "#FCA4A1",
+                  "#919191",
+                  "#BF7080"
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "35a5a364",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "144747cf",
+                  "fields": [
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    },
+                    {
+                      "name": "countdistinct(id_vuelo)",
+                      "expression": "COUNT(DISTINCT `id_vuelo`)"
+                    },
+                    {
+                      "name": "analisis_mes",
+                      "expression": "`analisis_mes`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "countdistinct(id_vuelo)",
+                  "axis": {
+                    "title": "Mes"
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "analisis_mes",
+                  "axis": {
+                    "title": "N Vuelos"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "color": {
+                  "fieldName": "count(*)",
+                  "displayName": "Cantidad",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Vuelos x Mes"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 2,
+            "width": 4,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "4e04176c",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Vuelos"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "8a537060",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "144747cf",
+                  "fields": [
+                    {
+                      "name": "count(*)",
+                      "expression": "COUNT(`*`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "count(*)",
+                  "displayName": "Count of Records"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Total Vuelos"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "c4e14639",
+            "queries": [
+              {
+                "name": "dashboards/01f0d627fd8c1803b6927b663560564a/datasets/01f0d628db041faca671f65c9957a27d_analisis_anio",
+                "query": {
+                  "datasetName": "144747cf",
+                  "fields": [
+                    {
+                      "name": "analisis_anio",
+                      "expression": "`analisis_anio`"
+                    },
+                    {
+                      "name": "analisis_anio_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "analisis_anio",
+                    "queryName": "dashboards/01f0d627fd8c1803b6927b663560564a/datasets/01f0d628db041faca671f65c9957a27d_analisis_anio"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Año"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 1,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "c6fc64a3",
+            "queries": [
+              {
+                "name": "dashboards/01f0d627fd8c1803b6927b663560564a/datasets/01f0d628db041faca671f65c9957a27d_analisis_mes",
+                "query": {
+                  "datasetName": "144747cf",
+                  "fields": [
+                    {
+                      "name": "analisis_mes",
+                      "expression": "`analisis_mes`"
+                    },
+                    {
+                      "name": "analisis_mes_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "analisis_mes",
+                    "queryName": "dashboards/01f0d627fd8c1803b6927b663560564a/datasets/01f0d628db041faca671f65c9957a27d_analisis_mes"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Mes"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 1,
+            "width": 2,
+            "height": 1
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "genieSpace": {
+      "isEnabled": true,
+      "enablementMode": "ENABLED"
+    },
+    "applyModeEnabled": false
+  }
+}

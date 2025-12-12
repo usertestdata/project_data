@@ -1,6 +1,9 @@
 
 # ✈️ Plataforma de Ingeniería de Datos: Rendimiento Aéreo Híbrido
 
+![Descripción de la imagen](https://github.com/usertestdata/project_data/blob/main/extras/terraform/img/arquitectura.png?raw=true)
+
+
 ## 📜 1. Visión General del Proyecto
 
 Este proyecto establece una **Plataforma de Ingeniería de Datos Híbrida** diseñada para analizar el rendimiento operativo y la rentabilidad de vuelos. La solución utiliza una **Lakehouse Architecture** en Databricks, gestionada por **Terraform** e orquestada por **Azure Data Factory (ADF)**.

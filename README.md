@@ -69,7 +69,7 @@ El proyecto utiliza un **proceso híbrido** para gestionar la actualización con
 
   * **Mecanismo:** `Structured Streaming` con `foreachBatch`.
   * **Lógica Clave (dentro de `process_batch`):**
-    1.  **Selección del Último Estado:** Se utiliza una **función de ventana (`ROW_NUMBER()`)** sobre el *batch* estático (`current_df`) para identificar y seleccionar el evento más reciente (`Timestamp_Evento`) por `ID_Vuelo`, resolviendo el problema de duplicación.
+    1.  **Selección del Último Estado:** Se utiliza una **función de ventana (`ROW_NUMBER()`)** sobre el *batch* estático para identificar y seleccionar el evento más reciente  por `ID_Vuelo`, resolviendo el problema de duplicación.
     2.  **Unión Híbrida:** Se realiza un **Left Join** entre el último estado operativo (Streaming) y la tabla estática de Silver (Dataset 1).
 
 -----
@@ -89,7 +89,7 @@ El **Dashboard de Databricks SQL** ofrece una visión unificada de las métricas
 ### 6.1. Requisitos
 
   * Terraform CLI, Azure CLI.
-  * Credenciales de un *Service Principal* de Azure.
+  * Credenciales de un *Service Principal* de Azure (Solo para Terraform).
 
 ### 6.2. Despliegue de Infraestructura (Terraform)
 

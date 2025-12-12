@@ -30,21 +30,21 @@ COMMENT 'Ubicación externa para las tablas bronze del Data Lake';
 CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-silver`
 URL 'abfss://silver@${storageName}.dfs.core.windows.net/'
 WITH (STORAGE CREDENTIAL credential)
-COMMENT 'Ubicación externa para las tablas bronze del Data Lake';
+COMMENT 'Ubicación externa para las tablas silver del Data Lake';
 
 -- COMMAND ----------
 
 CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-golden`
 URL 'abfss://gold@${storageName}.dfs.core.windows.net/'
 WITH (STORAGE CREDENTIAL credential)
-COMMENT 'Ubicación externa para las tablas bronze del Data Lake';
+COMMENT 'Ubicación externa para las tablas gold del Data Lake';
 
 -- COMMAND ----------
 
 CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-styreaming`
 URL 'abfss://streaming@${storageName}.dfs.core.windows.net/'
 WITH (STORAGE CREDENTIAL credential)
-COMMENT 'Ubicación externa para las tablas bronze del Data Lake';
+COMMENT 'Ubicación externa para las tablas streaming del Data Lake';
 
 -- COMMAND ----------
 
